@@ -13,7 +13,7 @@ namespace SnakeAndLadder
             //Displaying message
             Console.WriteLine("Welcome to the snake and ladder program\n");
 
-            //Startine the game by calling start game method
+            //Starting the game by calling start game method
             SnakeLadderGame.StartGame();
         }
     }

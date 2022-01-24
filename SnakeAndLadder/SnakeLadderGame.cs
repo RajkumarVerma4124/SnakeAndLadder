@@ -14,9 +14,10 @@ namespace SnakeAndLadder
         //Constant
         public static int WIN_POSITION = 100;
         
-        //Declaring variables and random object
+        //Declaring And Initializing Variables, Random Object
         public static int playerPosition;
         public static int currentPosition;
+        public static int dieRolled = 0;
         public static Random dieBoxRoll = new Random();
 
         public static void StartGame()
@@ -32,11 +33,14 @@ namespace SnakeAndLadder
                 //The Player checks for a Option For No Play, Ladder or Snake(UC3)
                 int checkOptions = dieBoxRoll.Next(0, 3);
 
+                //No. of times the dice played to win the game
+                dieRolled++;
+
                 //No Play Option
                 if (checkOptions == 0)
                 {
                     player[1] = playerPosition;
-                    Console.WriteLine("Player Got No Play Option ");
+                    Console.WriteLine("Player Got No Play Option So Current Position : "+player[1]+"\n");
                 }
 
                 //Ladder Option To Ensure The Player Gets To Exact Winning Position 100(UC5)
@@ -52,7 +56,7 @@ namespace SnakeAndLadder
                     {
                         player[1] = playerPosition;
                     }
-                    Console.WriteLine("Player Got Ladder Option With Dice Value : {0} ", rollDie);
+                    Console.WriteLine("Player Got Ladder Option With Dice Value : {0} Current Player Position : {1}", rollDie, player[1]+"\n");
                 }
 
                 //Snake Option To Ensure The Player Gets To Exact Winning Position 100(UC5)
@@ -68,10 +72,10 @@ namespace SnakeAndLadder
                     {
                         player[1] = playerPosition;
                     }
-                    Console.WriteLine("Player Got Snake Option With Dice Value: {0} ", rollDie);
+                    Console.WriteLine("Player Got Snake Option With Dice Value: {0} Current Player Position : {1}", rollDie, player[1]+"\n");
                 }
             }
-            Console.WriteLine("\nPlayer Reached The Winning Position : " +player[1]);
+            Console.WriteLine("\nPlayer Won With Dice Count Of : {0} And Reached Winning Position : {1}",dieRolled, player[1]);
             Console.ReadLine();
         }
     }
