@@ -8,7 +8,9 @@ namespace SnakeAndLadder
 {
     public class Program
     {
-        static void Main(string[] args)
+        //Initializing single player position(UC1)
+        public static int startPosition = 0;
+        public static void Main(string[] args)
         {
             //Displaying message
             Console.WriteLine("Welcome to the snake and ladder program");
