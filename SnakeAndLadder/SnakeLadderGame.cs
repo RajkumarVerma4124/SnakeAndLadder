@@ -39,7 +39,7 @@ namespace SnakeAndLadder
                     Console.WriteLine("Player Got No Play Option ");
                 }
 
-                //Ladder Option
+                //Ladder Option To Ensure The Player Gets To Exact Winning Position 100(UC5)
                 if (checkOptions == 1)
                 {
                     currentPosition = playerPosition + rollDie;
@@ -48,10 +48,14 @@ namespace SnakeAndLadder
                         playerPosition = currentPosition;
                         player[1] = playerPosition;
                     }
+                    else
+                    {
+                        player[1] = playerPosition;
+                    }
                     Console.WriteLine("Player Got Ladder Option With Dice Value : {0} ", rollDie);
                 }
 
-                //Snake Option
+                //Snake Option To Ensure The Player Gets To Exact Winning Position 100(UC5)
                 if (checkOptions == 2)
                 {
                     currentPosition = playerPosition - rollDie;
@@ -60,11 +64,14 @@ namespace SnakeAndLadder
                         playerPosition = currentPosition;
                         player[1] = playerPosition;
                     }
-                   
+                    else
+                    {
+                        player[1] = playerPosition;
+                    }
                     Console.WriteLine("Player Got Snake Option With Dice Value: {0} ", rollDie);
                 }
             }
-            Console.WriteLine("Player Reached The Winning Position : " +player[1]);
+            Console.WriteLine("\nPlayer Reached The Winning Position : " +player[1]);
             Console.ReadLine();
         }
     }
