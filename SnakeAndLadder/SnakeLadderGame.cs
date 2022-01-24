@@ -76,46 +76,47 @@ namespace SnakeAndLadder
                 }
                 Console.WriteLine("Player "+playerNum+" Got Snake Option With Dice Value: {0} Current Player Position : {1}", rollDie, player[playerNum] + "\n");
             }
+
+            //The condition for continue playing if got the ladder(UC7)
             if (checkOptions == 1 && player[playerNum] != 100)
             {
                 StartGame(playerNum);
             }
         }
 
-        //Playing Game With Two Players 
+        //Playing Game With Two Players Till One Wins(UC7) 
         public static void PlayGame()
         {
             //Repeating Till A Player Reach Winning Position i.e 100(UC4)
             while (true)
             {
-                if (SnakeLadderGame.players == 1)
+                if (players == 1)
                 {
-                    SnakeLadderGame.StartGame(1);
-                    if (SnakeLadderGame.player[1] == 100)
+                    StartGame(1);
+                    if (player[1] == 100)
                     {
-                        Console.WriteLine("Player 1 won with dice count of " + SnakeLadderGame.playerDieCount[1] + " \n");
+                        Console.WriteLine("Player 1 Won With Dice Count Of : {0} And Reached Win Position : {1} ",playerDieCount[1], player[1]);
                         Console.ReadLine();
                         break;
-                        //Environment.Exit(0);
                     }
                     else
                     {
-                        SnakeLadderGame.players = 2;
+                        players = 2;
                         continue;
                     }
                 }
-                if (SnakeLadderGame.players == 2)
+                if (players == 2)
                 {
-                    SnakeLadderGame.StartGame(2);
-                    if (SnakeLadderGame.player[2] == 100)
+                    StartGame(2);
+                    if (player[2] == 100)
                     {
-                        Console.WriteLine("Player 2 won with dice count of " + SnakeLadderGame.playerDieCount[2] + " \n");
+                        Console.WriteLine("Player 2 Won With Dice Count Of : {0} And Reached Win Position : {1} ",playerDieCount[2], player[2]);
                         Console.ReadLine();
                         break;
                     }
                     else
                     {
-                        SnakeLadderGame.players = 1;
+                        players = 1;
                         continue;
                     }
                 }
